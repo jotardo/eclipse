@@ -5,6 +5,9 @@ import java.awt.event.ContainerEvent;
 import java.awt.event.ContainerListener;
 
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -18,19 +21,30 @@ class Launcher extends JFrame implements ContainerListener{
 	private APane currentPane = null;
 	
 	public Launcher() {
-		super("ATGT");
+		super("QUESTION GAME");
 		try {
 			UIManager.setLookAndFeel(new javax.swing.plaf.nimbus.NimbusLookAndFeel());
 		} catch (UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
-		//setAlwaysOnTop(true);
+		initMenuBar();
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(1100, 700);
 		setLocationRelativeTo(null);
 		setLayout(new BorderLayout());
 		setVisible(true);
 		getContentPane().addContainerListener(this);
+	}
+	
+	private void initMenuBar() {
+		JMenuBar a = new JMenuBar();
+		JMenu file = new JMenu("File");
+		JMenu help = new JMenu("Help");
+		a.add(file);
+		a.add(help);
+		file.add(new JMenuItem());
+		help.add(new JMenuItem());
+		setJMenuBar(a);
 	}
 	
 	void showTitlePane() {

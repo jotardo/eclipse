@@ -4,7 +4,7 @@ import java.awt.Graphics;
 
 import javax.swing.JLabel;
 
-class TimeLabel extends Thread {
+class TimeTicker extends Thread {
 
 	private static int h = 0;
 	private static int m = 0;
@@ -15,7 +15,7 @@ class TimeLabel extends Thread {
 	private static char separator = ':';
 	private JLabel timeLabel;
 
-	public TimeLabel(int second, JLabel timeLabel) {
+	public TimeTicker(int second, JLabel timeLabel) {
 		this.timeLabel = timeLabel;
 		setClock(second);
 	}
