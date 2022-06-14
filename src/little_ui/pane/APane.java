@@ -1,8 +1,10 @@
-package little_ui;
+package little_ui.pane;
 
 import javax.swing.JPanel;
 
-abstract class APane extends JPanel {
+import little_ui.Launcher;
+
+public abstract class APane extends JPanel {
 
 	/**
 	 * 

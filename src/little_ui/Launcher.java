@@ -1,6 +1,7 @@
 package little_ui;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
 import java.awt.event.ContainerEvent;
 import java.awt.event.ContainerListener;
 
@@ -8,12 +9,18 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.UIDefaults;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-class Launcher extends JFrame implements ContainerListener{
+import little_ui.pane.APane;
+import little_ui.pane.ContentPane;
+import little_ui.pane.ResultPane;
+import little_ui.pane.TitlePane;
+
+public class Launcher extends JFrame implements ContainerListener{
 	
-	static Launcher frame;
+	public static Launcher frame;
 	private static final long serialVersionUID = 1L;
 	private static APane titlePane;
 	private static APane contentPane;
@@ -24,6 +31,7 @@ class Launcher extends JFrame implements ContainerListener{
 		super("QUESTION GAME");
 		try {
 			UIManager.setLookAndFeel(new javax.swing.plaf.nimbus.NimbusLookAndFeel());
+			UIManager.getLookAndFeelDefaults().put("defaultFont", new javax.swing.plaf.FontUIResource("SansSerif", Font.PLAIN, 15));
 		} catch (UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
@@ -47,19 +55,19 @@ class Launcher extends JFrame implements ContainerListener{
 		setJMenuBar(a);
 	}
 	
-	void showTitlePane() {
+	public void showTitlePane() {
 		if (currentPane != null)
 			remove(currentPane);
 		add(currentPane = titlePane);
 	}
 	
-	void showContentPane() {
+	public void showContentPane() {
 		if (currentPane != null)
 			remove(currentPane);
 		add(currentPane = contentPane);
 	}
 	
-	void showResultPane() {
+	public void showResultPane() {
 		if (currentPane != null)
 			remove(currentPane);
 		add(currentPane = resultPane);
@@ -71,6 +79,9 @@ class Launcher extends JFrame implements ContainerListener{
 		contentPane = new ContentPane();
 		resultPane = new ResultPane();
 		frame.showContentPane();
+		
+		UIDefaults a = UIManager.getLookAndFeelDefaults();
+		a.forEach((key, value) -> {System.out.println(key + " :: " + value + "\n");});
 	}
 
 	@Override

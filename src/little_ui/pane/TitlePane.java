@@ -1,4 +1,4 @@
-package little_ui;
+package little_ui.pane;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-class TitlePane extends APane implements ActionListener{
+public class TitlePane extends APane implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
 	private JButton btn;

@@ -1,8 +1,8 @@
-package little_ui;
+package little_ui.pane;
 
 import java.awt.Color;
 
-class ResultPane extends APane{
+public class ResultPane extends APane{
 
 	private static final long serialVersionUID = 1L;
 	
