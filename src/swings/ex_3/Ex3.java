@@ -17,11 +17,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 
-class Ex3 extends JFrame implements ActionListener{
+public class Ex3 extends JFrame implements ActionListener{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField text1, text2, textResult;
 	private JButton addBtn, subBtn, mulBtn, divBtn;
@@ -101,10 +98,6 @@ class Ex3 extends JFrame implements ActionListener{
 		mulOption.addActionListener(this);
 		divOption.addActionListener(this);
 		exitOption.addActionListener(this);
-	}
-
-	public static void main(String[] args) {
-		new Ex3();
 	}
 	
 	private void calculate(char operator) {

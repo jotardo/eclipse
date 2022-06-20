@@ -10,11 +10,8 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.*;
 
-class Ex5 extends JFrame{
+public class Ex5 extends JFrame{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField field_1, field_1_alt, field_2_alt, field_3, field_3_alt;
 	private JRadioButton maleBtn, femaleBtn;
@@ -23,10 +20,10 @@ class Ex5 extends JFrame{
 	public Ex5() {
 		super("Khảo sát thông tin");
 		setLayout(new GridLayout(3, 1));
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		
-		initContent(); //�?ây là nơi các thành phần sẽ tạo để kh�?i làm rối contructor
-		initEvents(); // �?ây là nơi các event sẽ được cài đặt
+		initContent(); //�?ây là nơi các thành phần sẽ tạo để kh�?i làm rối contructor
+		initEvents(); // �?ây là nơi các event sẽ được cài đặt
 
 		pack();
 		setLocationRelativeTo(null);
@@ -43,7 +40,7 @@ class Ex5 extends JFrame{
 		JPanel row3 = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		add(row1); add(row2); add(row3);
 		
-		row1.add(label_1 = new JLabel("H�? tên"));
+		row1.add(label_1 = new JLabel("H�? tên"));
 		row1.add(field_1 = new JTextField(textBoxSize));
 		row1.add(field_1_alt = new JTextField(textBoxSize));
 		label_1.setPreferredSize(dim);
@@ -60,7 +57,7 @@ class Ex5 extends JFrame{
 		gr.add(maleBtn); gr.add(femaleBtn);
 		field_2_alt.setEditable(false);
 		
-		row3.add(label_3 = new JLabel("Số ti�?n"));
+		row3.add(label_3 = new JLabel("Số ti�?n"));
 		row3.add(field_3 = new JTextField(textBoxSize));
 		row3.add(field_3_alt = new JTextField(textBoxSize));
 		label_3.setPreferredSize(dim);

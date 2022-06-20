@@ -8,17 +8,19 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-class Ex2 {
+public class Ex2 extends JFrame{
 
-	public static void main(String[] args) {
-		JFrame frame = new JFrame("The front view of a Microwave Oven");
-		frame.setLayout(new GridLayout(1, 2));
-		frame.setSize(640, 380);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
+	private static final long serialVersionUID = 1L;
+
+	public Ex2() {
+		super("The front view of a Microwave Oven");
+		setLayout(new GridLayout(1, 2));
+		setSize(640, 380);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setLocationRelativeTo(null);
 		
 		JButton leftSide = new JButton("Food to be placed here");
-		frame.add(leftSide);
+		add(leftSide);
 		
 		JPanel rightPanel = new JPanel(new BorderLayout());
 		JPanel buttonPanel = new JPanel(new GridLayout(4, 3));
@@ -29,9 +31,8 @@ class Ex2 {
 		buttonPanel.add(new JButton("0"));
 		buttonPanel.add(new JButton("Start"));
 		buttonPanel.add(new JButton("Stop"));
-		frame.add(rightPanel);
-		
-		frame.setVisible(true);
+		add(rightPanel);
+		setVisible(true);
 	}
 
 }

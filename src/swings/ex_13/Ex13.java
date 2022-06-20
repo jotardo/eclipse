@@ -1,47 +1,47 @@
 package swings.ex_13;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-class Calculator {
+public class Ex13 extends JFrame{
 
-	public Calculator() {
-		// TODO Auto-generated constructor stub
+	private static final long serialVersionUID = 1L;
+	
+	public Ex13() {
+		super("Java Calculator");
+		setLayout(new BoxLayout(getContentPane(), BoxLayout.PAGE_AXIS));
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setSize(225, 225);
+		//frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		initContent(this);
+		setLocationRelativeTo(null);
+		setVisible(true);
 	}
 
 	public static void main(String[] args) {
-		JFrame frame = new JFrame("Java Calculator");
-		frame.setLayout(new BorderLayout());
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
-		frame.setSize(300, 225);
-		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		initContent(frame);
-		frame.setVisible(true);
-		
-		
 	}
 
 	private static void initContent(JFrame frame) {
 		if (frame == null)
 			return;
 		frame.add(new JTextField(), BorderLayout.NORTH);
-		frame.add(new JPanel());
+		frame.add(Box.createRigidArea(new Dimension(0, 20)));
 		JPanel buttonHolder;
 		frame.add(buttonHolder = new JPanel(), BorderLayout.SOUTH);
 		buttonHolder.setLayout(new BoxLayout(buttonHolder, BoxLayout.Y_AXIS));
+		
 		JPanel theWeirdOne = new JPanel();
-		JPanel a;
+		theWeirdOne.setLayout(new BoxLayout(theWeirdOne, BoxLayout.LINE_AXIS));
 		theWeirdOne.add(new JButton("Backspace"));
-		theWeirdOne.add(a = new JPanel());
+		theWeirdOne.add(Box.createGlue());
 		theWeirdOne.add(new JButton("CE"));
 		theWeirdOne.add(new JButton("C"));
 		buttonHolder.add(theWeirdOne);
@@ -63,15 +63,7 @@ class Calculator {
 		gridBtn.add(new JButton("."));
 		gridBtn.add(new JButton("="));
 		gridBtn.add(new JButton("/"));
-		gridBtn.setPreferredSize(new Dimension(gridBtn.getPreferredSize().width + 70, gridBtn.getPreferredSize().height));
 		buttonHolder.add(gridBtn);
-
-		System.out.println(theWeirdOne.getPreferredSize());
-		theWeirdOne.setBackground(Color.BLACK);
-		theWeirdOne.setPreferredSize(new Dimension(buttonHolder.getPreferredSize().width, theWeirdOne.getPreferredSize().height));
-		int widthRemain = theWeirdOne.getPreferredSize().width - theWeirdOne.getComponent(0).getPreferredSize().width - theWeirdOne.getComponent(2).getPreferredSize().width - theWeirdOne.getComponent(3).getPreferredSize().width;
-		a.setPreferredSize(new Dimension(widthRemain, a.getPreferredSize().height));
-		System.out.println(theWeirdOne.getPreferredSize());
 	}
 
 }

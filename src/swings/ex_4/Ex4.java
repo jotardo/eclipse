@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.TitledBorder;
 
-class Ex4 extends JFrame implements ActionListener{
+public class Ex4 extends JFrame implements ActionListener{
 	
 	private static final long serialVersionUID = 1L;
 	private JLabel redInfo, greenInfo, yellowInfo;
@@ -22,7 +22,7 @@ class Ex4 extends JFrame implements ActionListener{
 		super("Traffic Light Program");
 		setSize(480,360);
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLayout(new GridLayout(3, 1));
 		initContent();
 		setVisible(true);

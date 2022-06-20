@@ -28,7 +28,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-class SVGUI extends JFrame implements ActionListener {
+public class SVGUI extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private Integer[] day;
@@ -56,7 +56,7 @@ class SVGUI extends JFrame implements ActionListener {
 		
 		setSize(300, 300);
 		setResizable(true);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setLayout(new BorderLayout());
 		initFileChooser();

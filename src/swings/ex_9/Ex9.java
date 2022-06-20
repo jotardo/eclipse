@@ -11,16 +11,13 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 
-class AnotherScroll extends JFrame{
+public class Ex9 extends JFrame{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	public AnotherScroll() {
+	public Ex9() {
 		super("JScrollBar Demostration");
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setSize(400, 200);
 		setLocationRelativeTo(null);
 		setLayout(new BorderLayout());
@@ -32,8 +29,9 @@ class AnotherScroll extends JFrame{
 		String[] cagetories = { "Household", "Office", "Extended family", "Company (US)", "Comapny (World)", "Team",
 			"Will", "Birthday Card List", "High School", "Country", "Continent", "Planet" };
 		ButtonGroup[] btnGrArr = new ButtonGroup[cagetories.length];
-		JScrollPane a = new JScrollPane();
 		JPanel pnl = new JPanel(new GridLayout(cagetories.length + 1, 7, 6, 0));
+		JScrollPane a = new JScrollPane();
+		
 		a.setViewportView(pnl);
 		add(a);
 		
@@ -51,10 +49,6 @@ class AnotherScroll extends JFrame{
 			for (int j = 0; j < 6; j++)
 				btnGrArr[i].add((AbstractButton) pnl.add(new JRadioButton()));
 		}
-	}
-
-	public static void main(String[] args) {
-		new AnotherScroll();
 	}
 
 }

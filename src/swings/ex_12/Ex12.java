@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.TitledBorder;
 
-class Ex12 extends JFrame implements ActionListener{
+public class Ex12 extends JFrame implements ActionListener{
 	
 	private static final long serialVersionUID = 1L;
 	private JLabel redInfo, greenInfo, yellowInfo;
@@ -27,7 +27,7 @@ class Ex12 extends JFrame implements ActionListener{
 		setSize(640,360);
 		//setResizable(false);
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		initContent();
 		setVisible(true);
@@ -60,11 +60,6 @@ class Ex12 extends JFrame implements ActionListener{
 		panelDown.add(yellowLight = new LightPanel(Color.yellow));
 		add(panelDown);
 		
-	}
-
-	public static void main(String[] args) {
-		new Ex12();
-
 	}
 
 	@Override

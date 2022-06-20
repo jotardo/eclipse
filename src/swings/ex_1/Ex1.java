@@ -17,7 +17,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 
-class Ex1 extends JFrame implements ActionListener{
+public class Ex1 extends JFrame implements ActionListener{
 
 	/**
 	 * 
@@ -37,7 +37,7 @@ class Ex1 extends JFrame implements ActionListener{
 		}
 		setResizable(false);
 		setLayout(new BorderLayout());
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		initContent();
 		setSize(440, 220);
 		setLocationRelativeTo(null);
@@ -79,11 +79,6 @@ class Ex1 extends JFrame implements ActionListener{
 		operatorList.add(divBtn);
 		operatorList.forEach(btn -> btn.addActionListener(this));
 		equalBtn.addActionListener(this);
-	}
-
-	public static void main(String[] args) {
-		new Ex1();
-
 	}
 
 	@Override

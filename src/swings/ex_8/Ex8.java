@@ -4,17 +4,14 @@ import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 
-class ScrollTime extends JFrame {
+public class Ex8 extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	public ScrollTime() {
+	public Ex8() {
 		super("JScrollPane Demo");
 		setSize(350, 200);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		String[] cagetories = { "Household", "Office", "Extended family", "Company (US)", "Comapny (World)", "Team",
 				"Will", "Birthday Card List", "High School", "Country", "Continent", "Planet" };
@@ -22,10 +19,6 @@ class ScrollTime extends JFrame {
 		JScrollPane scrollPane = new JScrollPane(list);
 		add(scrollPane);
 		setVisible(true);
-	}
-	
-	public static void main(String[] args) {
-		new ScrollTime();
 	}
 
 }

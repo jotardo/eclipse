@@ -32,7 +32,7 @@ class LightPanel extends JPanel{
 		// TODO Auto-generated method stub
 		super.paintComponent(g);
 		Rectangle rect = g.getClipBounds();
-		int circleDiameter = (int) rect.getHeight() - 25;
+		int circleDiameter = (int) rect.getHeight() - 50;
 		g.setColor(color);
 		if (!this.state) {
 			g.setColor(Color.DARK_GRAY);
@@ -44,7 +44,6 @@ class LightPanel extends JPanel{
 	
 	@Override
 	public Dimension getPreferredSize() {
-		// TODO Auto-generated method stub
 		Dimension tmp = super.getPreferredSize();
 		return new Dimension(tmp.width, tmp.height + 100);
 	}

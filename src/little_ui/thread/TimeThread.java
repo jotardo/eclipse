@@ -1,4 +1,6 @@
-package little_ui.util;
+package little_ui.thread;
+
+import java.awt.Color;
 
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
@@ -6,20 +8,19 @@ import javax.swing.JProgressBar;
 public class TimeThread extends Thread {
 
 	public static boolean exist = false;
-	private int h, m, s, ms;
-	private final char separator = ':';
+	private int hour, minute, second, milisecond;
+	private int timeLeftMS;
 	private JLabel timeLabel;
 	private JProgressBar progressBar;
-	private int timeLeftMS;
 
-	public TimeThread(int second, JLabel timeLabel, JProgressBar pBar) {
+	public TimeThread(int secondInput, JLabel timeLabel, JProgressBar pBar) {
 		this.timeLabel = timeLabel;
 		this.progressBar = pBar;
-		if (second > 0) {
-			h = second / 3600;
-			m = (second - h * 3600) / 60;
-			s = second - h * 3600 - m * 60;
-			this.timeLeftMS = second * 1000;
+		if (secondInput > 0) {
+			hour = secondInput / 3600;
+			minute = (secondInput - hour * 3600) / 60;
+			second = secondInput - hour * 3600 - minute * 60;
+			this.timeLeftMS = secondInput * 1000;
 			this.progressBar.setMaximum(timeLeftMS);
 			updateTime();
 		}
@@ -27,8 +28,10 @@ public class TimeThread extends Thread {
 	}
 	
 	private void updateTime() {
-		if (timeLabel != null)
-			timeLabel.setText(String.format("%02d%c%02d%c%02d", h, separator, m, separator, s));
+		if (timeLabel != null) {
+			timeLabel.setBackground((hour <= 0 && minute <= 0 && second <= 15) ? Color.red : Color.BLUE);
+			timeLabel.setText(String.format("%02d%c%02d%c%02d", hour, ':', minute, ':', second));
+		}
 		if (progressBar != null)
 			progressBar.setValue(timeLeftMS);
 	}
@@ -51,22 +54,22 @@ public class TimeThread extends Thread {
 
 	private void tick() throws InterruptedException {
 		timeLeftMS--;
-		if (h <= 0 && m <= 0 && s <= 0 && ms <= 0) {
+		if (hour <= 0 && minute <= 0 && second <= 0 && milisecond <= 0) {
 			throw new InterruptedException("Interrupt (Forced)");
 		}
 		else {
-			ms--;
-			if (ms < 0) {
-				s--;
-				if (s < 0) {
-					m--;
-					if (m < 0) {
-						h--;
-						m = 59;
+			milisecond--;
+			if (milisecond < 0) {
+				second--;
+				if (second < 0) {
+					minute--;
+					if (minute < 0) {
+						hour--;
+						minute = 59;
 					}
-					s = 59;
+					second = 59;
 				}
-				ms = 999;
+				milisecond = 999;
 			}
 		}
 	}
