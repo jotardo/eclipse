@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -18,9 +20,11 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 import swings.ex_1.Ex1;
+import swings.ex_11.Ex11;
 import swings.ex_12.Ex12;
 import swings.ex_13.Ex13;
 import swings.ex_14.SVGUI;
+import swings.ex_15.Ex15;
 import swings.ex_2.Ex2;
 import swings.ex_3.Ex3;
 import swings.ex_4.Ex4;
@@ -30,7 +34,7 @@ import swings.ex_7.Ex7;
 import swings.ex_8.Ex8;
 import swings.ex_9.Ex9;
 
-class SwingTest implements ActionListener{
+class SwingTest extends WindowAdapter implements ActionListener{
 	
 	public static void main(String[] args) {
 		try {
@@ -38,6 +42,7 @@ class SwingTest implements ActionListener{
 		} catch (UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
+		
 		JFrame frame = new JFrame("Swings Exercise");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
@@ -63,7 +68,6 @@ class SwingTest implements ActionListener{
 			tmp.addActionListener(new SwingTest());
 			if (i == 7-1 || i == 10-1 || i == 11-1 || i == 15-1) {
 				tmp.setForeground(Color.GRAY);
-				tmp.setEnabled(false);
 			}
 		}
 		result.setMaximumSize(result.getPreferredSize());
@@ -80,19 +84,27 @@ class SwingTest implements ActionListener{
 			e1.printStackTrace();
 		}
 		switch (num) {
-			case 1:	new Ex1(); break;
-			case 2:	new Ex2(); break;
-			case 3:	new Ex3(); break;
-			case 4:	new Ex4(); break;
-			case 5:	new Ex5(); break;
-			case 6: new Ex6(); break;
-			case 7:	new Ex7(); break;
-			case 8: new Ex8(); break;
-			case 9: new Ex9(); break;
-			case 12: new Ex12(); break;
-			case 13: new Ex13(); break;
-			case 14: new SVGUI(); break;
+			case 1:	new Ex1().addWindowListener(this); break;
+			case 2:	new Ex2().addWindowListener(this); break;
+			case 3:	new Ex3().addWindowListener(this); break;
+			case 4:	new Ex4().addWindowListener(this); break;
+			case 5:	new Ex5().addWindowListener(this); break;
+			case 6: new Ex6().addWindowListener(this); break;
+			case 7:	new Ex7().addWindowListener(this); break;
+			case 8: new Ex8().addWindowListener(this); break;
+			case 9: new Ex9().addWindowListener(this); break;
+			case 11: new Ex11().addWindowListener(this); break;
+			case 12: new Ex12().addWindowListener(this); break;
+			case 13: new Ex13().addWindowListener(this); break;
+			case 14: new SVGUI().addWindowListener(this); break;
+			case 15: new Ex15().addWindowListener(this); break;
 			default: 
 		}
+	}
+	
+	@Override
+	public void windowClosed(WindowEvent e) {
+		super.windowClosed(e);
+		e.getWindow().removeAll();
 	}
 }

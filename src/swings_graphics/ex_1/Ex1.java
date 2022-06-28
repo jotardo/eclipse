@@ -9,9 +9,6 @@ import javax.swing.JPanel;
 
 class Ex1 extends JFrame{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public Ex1(int gridNum) {
@@ -32,7 +29,7 @@ class Ex1 extends JFrame{
 	}
 	
 	public static void main(String[] args) {
-		new Ex1(21);
+		new Ex1(7);
 	}
 
 }
