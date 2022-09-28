@@ -28,8 +28,6 @@ public class FormularUtil {
 			case 2:
 				captcha[i] = (char) (limit_0 + r.nextInt(10));
 				break;
-				default:
-					break;
 			};
 		};
 		return new String(captcha);
